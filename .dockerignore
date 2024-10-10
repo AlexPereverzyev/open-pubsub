@@ -1,0 +1,12 @@
+.vscode
+build
+node_modules
+.dockerignore
+.editorconfig
+.env.debug
+eslint.config.mjs
+.gitignore
+.prettierrc.json
+compose.yaml
+Dockerfile
+nginx.conf

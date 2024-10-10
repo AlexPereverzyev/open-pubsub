@@ -1,0 +1,46 @@
+{
+  "name": "open-pubsub",
+  "version": "0.1.0",
+  "description": "Scalable messaging backend based on Web sockets and Redis Pub/Sub",
+  "author": "Alex Pereverzyev",
+  "license": "MIT",
+  "keywords": [
+    "Web sockets",
+    "pubsub",
+    "redis"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AlexPereverzyev/open-pubsub"
+  },
+  "main": "build/server.js",
+  "scripts": {
+    "format": "prettier --write 'src/**/*.ts'",
+    "lint": "eslint . --fix",
+    "build": "npm run clean && tsc",
+    "debug": "DEBUG=* node ./build/server.js",
+    "clean": "rm -rf ./build/*",
+    "start": "node ./build/server.js",
+    "client": "node ./build/client.js"
+  },
+  "dependencies": {
+    "axios": "^1.7.7",
+    "ioredis": "^5.4.1",
+    "koa": "^2.15.3",
+    "koa-bodyparser": "^4.4.1",
+    "koa-router": "^13.0.1",
+    "ws": "^8.18.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.12.0",
+    "@types/koa": "^2.15.0",
+    "@types/koa-router": "^7.4.8",
+    "@types/node": "^22.5.5",
+    "@types/ws": "^8.5.12",
+    "eslint": "^9.12.0",
+    "prettier": "^3.3.3",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.6.2",
+    "typescript-eslint": "^8.8.1"
+  }
+}
