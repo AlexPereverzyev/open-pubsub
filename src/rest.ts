@@ -27,7 +27,7 @@ export default class App {
 
     this.app = new Koa();
     this.app.context.cache = this.cache;
-    this.app.use(bodyParser);
+    this.app.use(bodyParser());
     this.app.use(router.routes());
     this.app.on('error', (err: unknown) => {
       if (err instanceof Error) {
