@@ -1,6 +1,7 @@
 import { Server } from 'http';
 import Koa from 'koa';
 import KoaRouter from 'koa-router';
+import bodyParser from 'koa-bodyparser';
 import * as api from './api';
 import config from './config';
 
@@ -26,6 +27,7 @@ export default class App {
 
     this.app = new Koa();
     this.app.context.cache = this.cache;
+    this.app.use(bodyParser);
     this.app.use(router.routes());
     this.app.on('error', (err: unknown) => {
       if (err instanceof Error) {
@@ -34,9 +36,9 @@ export default class App {
       }
     });
 
-    this.server = this.app.listen(port);
-
-    console.info('REST server started at port', port);
+    this.server = this.app.listen(port, () => {
+      console.info('REST server started at port', port);
+    });
   }
 
   stop(): void {
